@@ -6,13 +6,14 @@
     android:gravity="center_vertical"
     android:orientation="horizontal"
     android:minHeight="?android:attr/listPreferredItemHeight"
-    android:padding="16dp"
+
     >
 
     <ImageView
         android:id="@+id/image"
         android:layout_width="88dp"
         android:layout_height="88dp"
+        android:padding="5dp"
         />
 
     <LinearLayout
@@ -24,9 +25,10 @@
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@id/image"
         android:orientation="vertical"
-        android:paddingLeft="16dp">
+        android:padding="16dp">
 
         <TextView
+            style="@style/list"
             android:id="@+id/japanese_text_view"
             tools:text="Japanese"
             android:textAppearance="?android:textAppearanceLarge"
@@ -35,6 +37,7 @@
             />
 
         <TextView
+            style="@style/list"
             android:id="@+id/romanji_text_view"
             tools:text="Romanji"
             android:layout_width="wrap_content"
@@ -43,6 +46,7 @@
             />
 
         <TextView
+            style="@style/list"
             android:id="@+id/translation_text_view"
             tools:text="Translation"
             android:layout_width="wrap_content"

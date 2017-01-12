@@ -31,7 +31,7 @@ public class FamilyActivity extends AppCompatActivity {
 
         // Create a {@link : WordAdapter } whose data source is a list of Words. The
         // adapter know how to create list items for each item in the list
-        WordAdapter adapter = new WordAdapter(FamilyActivity.this, words);
+        WordAdapter adapter = new WordAdapter(FamilyActivity.this, words, R.color.family);
 
 
 

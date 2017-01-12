@@ -31,7 +31,7 @@ public class NumbersActivity extends AppCompatActivity {
         words.add(new Word("十", "Jû", "10", R.drawable.ic_ten));
         // Create a {@link : WordAdapter } whose data source is a list of Words. The
         // adapter know how to create list items for each item in the list
-        WordAdapter adapter = new WordAdapter(NumbersActivity.this, words);
+        WordAdapter adapter = new WordAdapter(NumbersActivity.this, words, R.color.numbers);
 
 
 

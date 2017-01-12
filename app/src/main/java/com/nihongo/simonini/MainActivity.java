@@ -125,6 +125,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /*
+            ABOUT
+         */
+        TextView about = (TextView) findViewById(R.id.about);
+
+        about.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                // Intent to open another activity
+                Intent openActivityI = new Intent(MainActivity.this, AboutActivity.class);
+                startActivity(openActivityI);
+            }
+        });
+
 
 
 

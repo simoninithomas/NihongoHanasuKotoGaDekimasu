@@ -20,7 +20,8 @@
         <activity android:name=".ColorsActivity" />
         <activity android:name=".FamilyActivity" />
         <activity android:name=".NumbersActivity" />
-        <activity android:name=".Intro"></activity>
+        <activity android:name=".Intro" />
+        <activity android:name=".AboutActivity"></activity>
     </application>
 
 </manifest>

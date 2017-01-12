@@ -4,8 +4,10 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="white">#ffffff</color>
-
-
-
-
+    <color name="animals">#379237</color>
+    <color name="colors">#8800A0</color>
+    <color name="expressions">#16AFCA</color>
+    <color name="family">#FD8E09</color>
+    <color name="numbers">#EA4335</color>
+    <color name="background">#fbfff9</color>
 </resources>

@@ -31,7 +31,7 @@ public class ColorsActivity extends AppCompatActivity {
 
         // Create a {@link : WordAdapter } whose data source is a list of Words. The
         // adapter know how to create list items for each item in the list
-        WordAdapter adapter = new WordAdapter(ColorsActivity.this, words);
+        WordAdapter adapter = new WordAdapter(ColorsActivity.this, words, R.color.colors);
 
 
 
