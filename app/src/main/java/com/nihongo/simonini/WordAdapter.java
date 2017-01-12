@@ -47,9 +47,23 @@ public WordAdapter(Context context, ArrayList<Word> words) {
         TextView translationTextView = (TextView) listItemView.findViewById(R.id.translation_text_view);
         translationTextView.setText(currentWord.getTranslation());
 
+        ImageView imageImageView = (ImageView) listItemView.findViewById(R.id.image);
+        // Check if an image is provided for this word or not
+        if (currentWord.hasImage()) {
+            // If an image is available, display the provided image based on the resource ID
+            imageImageView.setImageResource(currentWord.getImageResourceId());
+            // Make sure the view is visible
+            imageImageView.setVisibility(View.VISIBLE);
+        } else {
+            // Otherwise hide the ImageView (set visibility to GONE)
+            imageImageView.setVisibility(View.GONE);
+        }
+
+
         // Return the whole list item layout (containing 2 TextViews) so that it can be shown in
         // the ListView.
         return listItemView;
     }
+
 }
 

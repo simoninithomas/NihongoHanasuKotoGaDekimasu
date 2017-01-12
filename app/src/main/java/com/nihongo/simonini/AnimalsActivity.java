@@ -17,16 +17,16 @@ public class AnimalsActivity extends AppCompatActivity {
         // Create a list of fake words to fill
         //words.add(new Word("", "", ""));
         ArrayList<Word> words = new ArrayList<Word>();
-        words.add(new Word("どうぶつ", "Dou butsu", "Animals"));
-        words.add(new Word("ねこ", "Neko", "Cat"));
-        words.add(new Word("いぬ", "Inu", "Dog"));
-        words.add(new Word("パンダ", "Panda", "Panda"));
-        words.add(new Word("タヌキ", "Tanuki", "Raccoon"));
-        words.add(new Word("クマ", "Kuma", "Bear"));
-        words.add(new Word("フクロウ", "Fukurou", "Owl"));
-        words.add(new Word("ヤギ", "Yagi", "Goat"));
-        words.add(new Word("シカ", "Shika", "Deer"));
-        words.add(new Word("キリン", "Kirin", "Girafe"));
+        words.add(new Word("どうぶつ", "Dou butsu", "Animals", -1));
+        words.add(new Word("ねこ", "Neko", "Cat", R.drawable.ic_cat));
+        words.add(new Word("いぬ", "Inu", "Dog",  R.drawable.ic_dog));
+        words.add(new Word("パンダ", "Panda", "Panda",  R.drawable.ic_panda));
+        words.add(new Word("タヌキ", "Tanuki", "Raccoon",  R.drawable.ic_raccoon));
+        words.add(new Word("クマ", "Kuma", "Bear", R.drawable.ic_bear));
+        words.add(new Word("フクロウ", "Fukurou", "Owl", R.drawable.ic_owl));
+        words.add(new Word("ヤギ", "Yagi", "Goat", R.drawable.ic_goat));
+        words.add(new Word("シカ", "Shika", "Deer", R.drawable.ic_deer));
+        words.add(new Word("キリン", "Kirin", "Giraffe", R.drawable.ic_giraffe));
 
         // Create a {@link : WordAdapter } whose data source is a list of Words. The
         // adapter know how to create list items for each item in the list
