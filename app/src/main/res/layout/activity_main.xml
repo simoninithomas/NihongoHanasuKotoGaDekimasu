@@ -41,45 +41,72 @@
         android:text="Nihongo o hanasu koto ga dekimasu!"
         android:gravity="center"/>
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/expressions">
         <TextView
         style="@style/menu"
-            android:background="@color/expressions"
+            android:background="?android:attr/selectableItemBackground"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/expressions"
         android:text="Expressions" />
+        </FrameLayout>
 
-    <TextView
-        style="@style/menu"
-        android:background="@color/numbers"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/numbers"
-        android:text="Numbers" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/numbers">
+            <TextView
+                style="@style/menu"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/numbers"
+                android:text="Numbers" />
+        </FrameLayout>
 
-    <TextView
-        style="@style/menu"
-        android:background="@color/animals"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/animals"
-        android:text="Animals" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/animals">
+            <TextView
+                style="@style/menu"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/animals"
+                android:text="Animals" />
+        </FrameLayout>
 
-    <TextView
-        style="@style/menu"
-        android:background="@color/colors"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/colors"
-        android:text="Colors" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colors">
+            <TextView
+                style="@style/menu"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/colors"
+                android:text="Colors" />
+        </FrameLayout>
 
-    <TextView
-        style="@style/menu"
-        android:background="@color/family"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/family"
-        android:text="Family" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/family">
+            <TextView
+                style="@style/menu"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/family"
+                android:text="Family" />
+        </FrameLayout>
+
+
 
         <TextView
             android:layout_width="match_parent"

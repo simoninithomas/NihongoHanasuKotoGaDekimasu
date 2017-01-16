@@ -10,4 +10,9 @@
     <color name="family">#FD8E09</color>
     <color name="numbers">#EA4335</color>
     <color name="background">#fbfff9</color>
+
+    <!-- APP Intro -->
+    <color name="green">#34A853</color>
+    <color name="red">#EA4335</color>
+    <color name="blue">#4285F4</color>
 </resources>

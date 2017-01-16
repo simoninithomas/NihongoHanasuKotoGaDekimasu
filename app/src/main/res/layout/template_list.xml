@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="120dp"
     android:gravity="center_vertical"
     android:orientation="horizontal"
     android:minHeight="?android:attr/listPreferredItemHeight"
-
     >
 
     <ImageView
@@ -25,35 +24,53 @@
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@id/image"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        >
 
         <TextView
-            style="@style/list"
-            android:id="@+id/japanese_text_view"
-            tools:text="Japanese"
-            android:textAppearance="?android:textAppearanceLarge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
+                style="@style/list"
+                android:id="@+id/japanese_text_view"
+                tools:text="Japanese"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
 
-        <TextView
-            style="@style/list"
-            android:id="@+id/romanji_text_view"
-            tools:text="Romanji"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:textAppearanceMedium"
-            />
+            <TextView
+                style="@style/list"
+                android:id="@+id/romanji_text_view"
+                tools:text="Romanji"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:textAppearanceMedium"
+                />
 
-        <TextView
-            style="@style/list"
-            android:id="@+id/translation_text_view"
-            tools:text="Translation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:textAppearanceMedium"/>
+            <TextView
+                style="@style/list"
+                android:id="@+id/translation_text_view"
+                tools:text="Translation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:textAppearanceMedium"/>
+
+
         </LinearLayout>
-    </LinearLayout>
+
+        <ImageView
+            android:id="@+id/play"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginRight="16dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_play_arrow"
+            />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?android:attr/selectableItemBackground"/>
+    </RelativeLayout>
 
 
 

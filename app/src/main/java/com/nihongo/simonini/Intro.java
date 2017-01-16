@@ -19,9 +19,9 @@ public class Intro extends AppIntro {
 
         // Add your slide fragments here.
         // AppIntro will automatically generate the dots indicator and buttons.
-        addSlide(AppIntroFragment.newInstance("こんにちは!", "This app will help you to learn some japanese words and expressions", R.drawable.ic_arrow_forward_white, ResourcesCompat.getColor(getResources(), R.color.colorAccent, null)));
-        addSlide(AppIntroFragment.newInstance("聴く", "Tap to listen the pronunciation", R.drawable.ic_arrow_forward_white, ResourcesCompat.getColor(getResources(), R.color.colorAccent, null)));
-        addSlide(AppIntroFragment.newInstance("楽しそう!", "", R.drawable.ic_arrow_forward_white, ResourcesCompat.getColor(getResources(), R.color.colorAccent, null)));
+        addSlide(AppIntroFragment.newInstance("こんにちは!", "This app will help you to learn some japanese words and expressions", R.drawable.ic_japan, ResourcesCompat.getColor(getResources(), R.color.green, null)));
+        addSlide(AppIntroFragment.newInstance("聴く", "Tap to listen the pronunciation", R.drawable.ic_play_button, ResourcesCompat.getColor(getResources(), R.color.red, null)));
+        addSlide(AppIntroFragment.newInstance("楽しそう!", "", R.drawable.ic_torii, ResourcesCompat.getColor(getResources(), R.color.blue, null)));
 
         /*OPTIONAL METHODS
         // Override bar/separator color.
@@ -31,6 +31,7 @@ public class Intro extends AppIntro {
         // Hide Skip/Done button.
         showSkipButton(true);
         setProgressButtonEnabled(true);
+        setFadeAnimation();
 
         // Turn vibration on and set intensity.
         // NOTE: you will probably need to ask VIBRATE permission in Manifest.
@@ -38,11 +39,11 @@ public class Intro extends AppIntro {
         setVibrateIntensity(30);
     }
 
-    /*@Override
+    @Override
     public void onSkipPressed(Fragment currentFragment) {
         super.onSkipPressed(currentFragment);
         // Do something when users tap on Skip button.
-    }*/
+    }
 
     @Override
     public void onDonePressed(Fragment currentFragment) {
@@ -53,9 +54,11 @@ public class Intro extends AppIntro {
 
     }
 
-      /*@Override
+    @Override
     public void onSlideChanged(@Nullable Fragment oldFragment, @Nullable Fragment newFragment) {
         super.onSlideChanged(oldFragment, newFragment);
         // Do something when the slide changes.
-    }*/
+    }
+
+
 }
