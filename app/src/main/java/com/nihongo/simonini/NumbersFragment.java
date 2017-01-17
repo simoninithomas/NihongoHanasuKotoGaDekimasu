@@ -1,18 +1,30 @@
 package com.nihongo.simonini;
 
+
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class ExpressionsActivity extends AppCompatActivity {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class NumbersFragment extends Fragment {
+
+
+    public NumbersFragment() {
+        // Required empty public constructor
+    }
+
     // This variable contains the MediaPlayer we want to play.
     private MediaPlayer mMediaPlayer;
 
@@ -52,17 +64,6 @@ public class ExpressionsActivity extends AppCompatActivity {
             }
         }
     };
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        // When the activity is stopped, release the media player resources because we won't
-        // be playing any more sounds.
-        releaseMediaPlayer();
-
-
-    }
-
     /**
      * This listener gets triggered when the {@link MediaPlayer} has completed
      * playing the audio file.
@@ -74,6 +75,7 @@ public class ExpressionsActivity extends AppCompatActivity {
             releaseMediaPlayer();
         }
     };
+
     /**
      * Clean up the media player by releasing its resources.
      */
@@ -95,36 +97,36 @@ public class ExpressionsActivity extends AppCompatActivity {
         }
     }
 
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_view);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.list_view, container, false);
 
-        // Initialise AudioManager by calling getSystemService
+// Initialise AudioManager by calling getSystemService
         // and passing in the audio service constant
-        mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        mAudioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
+
 
         final ArrayList<Word> words = new ArrayList<Word>();
-        words.add(new Word("今日は", "Konichiwa", "Hello", -1, R.raw.konichiwa));
-        words.add(new Word("今晩は", "Konbanwa", "Good evening", -1, R.raw.konbanwa));
-        words.add(new Word("おやすみなさい ", "Oyasumi nasai", "Good night", -1, R.raw.oyasumi_nasai));
-        words.add(new Word("ありがとう", "Arigatô", "Thanks", -1, R.raw.arigatou));
-        words.add(new Word("私は　____です　宜しくお願いたします。", "Watashi wa ____desu yoroshiku onegaitashimasu", "My name is ____nice to meet you.", -1, R.raw.watashi_wa_desu_yoroshiku_onegaitashimasu));
-        words.add(new Word("私は　フランス人です。", "Watashi wa furansujin desu", "I'm French.", -1, R.raw.watashi_wa_furansujin_desu));
-        words.add(new Word("私は日本語を勉強します。", "Watashi wa nihongo o benkyô shimasu", "I'm learning Japanese", -1, R.raw.watashi_wa_nihongo_o_benkyou_shimasu));
-        words.add(new Word("乾杯", "Kanpai", "Cheers", -1, R.raw.kanpai));
-        words.add(new Word("いただきます", "Itadakimasu", "Bon appetit", -1, R.raw.itadakimasu));
-        words.add(new Word("いってきます", "Itte kimasu", "See you", -1, R.raw.itte_kimasu));
+        words.add(new Word("ゼロ", "Zero", "0", R.drawable.ic_zero, R.raw.zero));
+        words.add(new Word("一", "Ichi", "1", R.drawable.ic_one, R.raw.ichi));
+        words.add(new Word("二", "Ni", "2", R.drawable.ic_two, R.raw.ni));
+        words.add(new Word("三", "San", "3", R.drawable.ic_three, R.raw.san));
+        words.add(new Word("四", "Yon", "4", R.drawable.ic_four, R.raw.yon));
+        words.add(new Word("五", "Go", "5", R.drawable.ic_five, R.raw.go));
+        words.add(new Word("六", "Roku", "6", R.drawable.ic_six, R.raw.roku));
+        words.add(new Word("七", "Nana", "7", R.drawable.ic_seven, R.raw.nana));
+        words.add(new Word("八", "Hachi", "8", R.drawable.ic_eight, R.raw.hachi));
+        words.add(new Word("九", "Kyû", "9", R.drawable.ic_nine, R.raw.kyuu));
+        words.add(new Word("十", "Jû", "10", R.drawable.ic_ten, R.raw.juu));
 
         // Create a {@link : WordAdapter } whose data source is a list of Words. The
         // adapter know how to create list items for each item in the list
-        WordAdapter adapter = new WordAdapter(ExpressionsActivity.this, words, R.color.expressions);
-
+        WordAdapter adapter = new WordAdapter(getActivity(), words, R.color.numbers);
 
         // Find the ListView object in the view hierarchy of the Activity
         // There should be a ListView with the view ID called list, which is declared in the template_list.xml
-        ListView listView = (ListView) findViewById(R.id.list_view_id);
+        ListView listView = (ListView) rootView.findViewById(R.id.list_view_id);
 
         listView.setAdapter(adapter);
 
@@ -157,7 +159,7 @@ public class ExpressionsActivity extends AppCompatActivity {
                 if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
                     // We have audio focus now.
 
-                    mMediaPlayer = MediaPlayer.create(ExpressionsActivity.this, word.getSoundResourceId());
+                    mMediaPlayer = MediaPlayer.create(getActivity(), word.getSoundResourceId());
                     mMediaPlayer.start();
 
                     // Setup a listener on the media player, so we can stop
@@ -169,13 +171,17 @@ public class ExpressionsActivity extends AppCompatActivity {
         });
 
 
+        return rootView;
     }
 
 
 
-
+    @Override
+    public void onStop() {
+        super.onStop();
+        // When the activity is stopped, release the media player resources because we won't
+        // be playing any more sounds.
+        releaseMediaPlayer();
+    }
 
 }
-
-
-

@@ -1,19 +1,30 @@
 package com.nihongo.simonini;
 
+
 import android.content.Context;
-import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class ColorsActivity extends AppCompatActivity {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class ExpressionsFragment extends Fragment {
+
+
+    public ExpressionsFragment() {
+        // Required empty public constructor
+    }
+
     // This variable contains the MediaPlayer we want to play.
     private MediaPlayer mMediaPlayer;
 
@@ -53,17 +64,6 @@ public class ColorsActivity extends AppCompatActivity {
             }
         }
     };
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        // When the activity is stopped, release the media player resources because we won't
-        // be playing any more sounds.
-        releaseMediaPlayer();
-
-
-    }
-
     /**
      * This listener gets triggered when the {@link MediaPlayer} has completed
      * playing the audio file.
@@ -75,6 +75,7 @@ public class ColorsActivity extends AppCompatActivity {
             releaseMediaPlayer();
         }
     };
+
     /**
      * Clean up the media player by releasing its resources.
      */
@@ -96,37 +97,35 @@ public class ColorsActivity extends AppCompatActivity {
         }
     }
 
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_view);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.list_view, container, false);
 
-        // Initialise AudioManager by calling getSystemService
+// Initialise AudioManager by calling getSystemService
         // and passing in the audio service constant
-        mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        mAudioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
 
 
         final ArrayList<Word> words = new ArrayList<Word>();
-        words.add(new Word("あか", "Aki", "Red", R.drawable.ic_red, R.raw.aki));
-        words.add(new Word("きいろ", "Kiiro", "Yellow", R.drawable.ic_yellow, R.raw.kiiro));
-        words.add(new Word("あお", "Ao", "Blue", R.drawable.ic_blue, R.raw.ao));
-        words.add(new Word("みどり色", "Midori iro", "Green", R.drawable.ic_green, R.raw.midori_iro));
-        words.add(new Word("むらさき色", "Murasaki iro", "Purple", R.drawable.ic_purple, R.raw.murasaki_iro));
-        words.add(new Word("オレンジ色", "Orenji iro", "Orange", R.drawable.ic_orange, R.raw.orenji_iro));
-        words.add(new Word("ピンク", "Pinku", "Pink", R.drawable.ic_pink, R.raw.pinku));
-        words.add(new Word("黒", "Kuro", "Black", R.drawable.ic_black, R.raw.kuro));
-        words.add(new Word("白", "Shiro", "White", R.drawable.ic_white, R.raw.shiro));
-        words.add(new Word("茶色", "Cha iro", "Brown", R.drawable.ic_brown, R.raw.cha_iro));
+        words.add(new Word("今日は", "Konichiwa", "Hello", -1, R.raw.konichiwa));
+        words.add(new Word("今晩は", "Konbanwa", "Good evening", -1, R.raw.konbanwa));
+        words.add(new Word("おやすみなさい ", "Oyasumi nasai", "Good night", -1, R.raw.oyasumi_nasai));
+        words.add(new Word("ありがとう", "Arigatô", "Thanks", -1, R.raw.arigatou));
+        words.add(new Word("私は　____です　宜しくお願いたします。", "Watashi wa ____desu yoroshiku onegaitashimasu", "My name is ____nice to meet you.", -1, R.raw.watashi_wa_desu_yoroshiku_onegaitashimasu));
+        words.add(new Word("私は　フランス人です。", "Watashi wa furansujin desu", "I'm French.", -1, R.raw.watashi_wa_furansujin_desu));
+        words.add(new Word("私は日本語を勉強します。", "Watashi wa nihongo o benkyô shimasu", "I'm learning Japanese", -1, R.raw.watashi_wa_nihongo_o_benkyou_shimasu));
+        words.add(new Word("乾杯", "Kanpai", "Cheers", -1, R.raw.kanpai));
+        words.add(new Word("いただきます", "Itadakimasu", "Bon appetit", -1, R.raw.itadakimasu));
+        words.add(new Word("いってきます", "Itte kimasu", "See you", -1, R.raw.itte_kimasu));
 
         // Create a {@link : WordAdapter } whose data source is a list of Words. The
         // adapter know how to create list items for each item in the list
-        WordAdapter adapter = new WordAdapter(ColorsActivity.this, words, R.color.colors);
-
+        WordAdapter adapter = new WordAdapter(getActivity(), words, R.color.expressions);
 
         // Find the ListView object in the view hierarchy of the Activity
         // There should be a ListView with the view ID called list, which is declared in the template_list.xml
-        ListView listView = (ListView) findViewById(R.id.list_view_id);
+        ListView listView = (ListView) rootView.findViewById(R.id.list_view_id);
 
         listView.setAdapter(adapter);
 
@@ -159,7 +158,7 @@ public class ColorsActivity extends AppCompatActivity {
                 if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
                     // We have audio focus now.
 
-                    mMediaPlayer = MediaPlayer.create(ColorsActivity.this, word.getSoundResourceId());
+                    mMediaPlayer = MediaPlayer.create(getActivity(), word.getSoundResourceId());
                     mMediaPlayer.start();
 
                     // Setup a listener on the media player, so we can stop
@@ -171,13 +170,17 @@ public class ColorsActivity extends AppCompatActivity {
         });
 
 
+        return rootView;
     }
 
 
 
-
+    @Override
+    public void onStop() {
+        super.onStop();
+        // When the activity is stopped, release the media player resources because we won't
+        // be playing any more sounds.
+        releaseMediaPlayer();
+    }
 
 }
-
-
-

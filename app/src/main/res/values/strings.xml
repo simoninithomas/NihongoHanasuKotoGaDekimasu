@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">NihongoHanasuKotoGaDekimasu</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="animals_title">Animals</string>
+    <string name="colors_title">Colors</string>
+    <string name="numbers_title">Numbers</string>
+    <string name="family_title">Family</string>
+    <string name="expressions_title">Expressions</string>
 </resources>

@@ -3,6 +3,11 @@ package com.nihongo.simonini;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,12 +19,36 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
+
+        // Find the view pager that will allow the user to swipe between fragments
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+
+        // Create an adapter that knows which fragment should be shown on each page
+        CategoryAdapter adapter = new CategoryAdapter(this, getSupportFragmentManager());
+
+        // Set the adapter onto the view pager
+        viewPager.setAdapter(adapter);
+
+        // Find the tab layout that shows the tabs
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+
+        // Connect the tab layout with the view pager. This will
+        //   1. Update the tab layout when the view pager is swiped
+        //   2. Update the view pager when a tab is selected
+        //   3. Set the tab layout's tab names with the view pager's adapter's titles
+        //      by calling onPageTitle()
+        tabLayout.setupWithViewPager(viewPager);
+
+
+
 
       /*
             INTRO
 
-       */
+
 
         //  Declare a new thread to do a preference check
         Thread t = new Thread(new Runnable() {
@@ -54,97 +83,9 @@ public class MainActivity extends AppCompatActivity {
         // Start the thread
         t.start();
 
-
-        /*
-            ANIMALS
-         */
-        TextView animals = (TextView) findViewById(R.id.animals);
-
-        animals.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                // Intent to open another activity
-                Intent openActivityI = new Intent(MainActivity.this, AnimalsActivity.class);
-                startActivity(openActivityI);
-            }
-        });
-
-        /*
-            ANIMALS
-         */
-        TextView colors = (TextView) findViewById(R.id.colors);
-
-        colors.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                // Intent to open another activity
-                Intent openActivityI = new Intent(MainActivity.this, ColorsActivity.class);
-                startActivity(openActivityI);
-            }
-        });
-
-        /*
-            EXPRESSIONS
-         */
-        TextView expressions = (TextView) findViewById(R.id.expressions);
-
-        expressions.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                // Intent to open another activity
-                Intent openActivityI = new Intent(MainActivity.this, ExpressionsActivity.class);
-                startActivity(openActivityI);
-            }
-        });
-
-        /*
-            FAMILY
-         */
-        TextView family = (TextView) findViewById(R.id.family);
-
-        family.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                // Intent to open another activity
-                Intent openActivityI = new Intent(MainActivity.this, FamilyActivity.class);
-                startActivity(openActivityI);
-            }
-        });
-
-        /*
-            NUMBERS
-         */
-        TextView numbers = (TextView) findViewById(R.id.numbers);
-
-        numbers.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                // Intent to open another activity
-                Intent openActivityI = new Intent(MainActivity.this, NumbersActivity.class);
-                startActivity(openActivityI);
-            }
-        });
-
-        /*
-            ABOUT
-         */
-        TextView about = (TextView) findViewById(R.id.about);
-
-        about.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                // Intent to open another activity
-                Intent openActivityI = new Intent(MainActivity.this, AboutActivity.class);
-                startActivity(openActivityI);
-            }
-        });
-
-
-
-
-
+*/
     }
 
+}
 
-    }
 
